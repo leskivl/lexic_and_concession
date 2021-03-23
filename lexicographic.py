@@ -17,3 +17,10 @@ def find_indices_of_max_value(array):
     indices = [index for index, value in enumerate(array) if value == max_value]
     return indices
 
+
+def replace_unnecessary_value(array, indices):
+    # function that replace unnecessary value to null
+    for index in range(len(array)):
+        if index not in indices:
+            array[index] = np.nan
+    return array
