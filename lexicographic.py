@@ -1,5 +1,5 @@
 import numpy as np
-
+import random
 
 def new_order_array(array, order):
     # function creates a new array in a certain order
@@ -24,3 +24,21 @@ def replace_unnecessary_value(array, indices):
         if index not in indices:
             array[index] = np.nan
     return array
+
+N = 5
+num_criterion = 4
+num_alternative = N + 3
+
+# generating alternatives
+alternative_array = np.array([random.randint(0, 5) for i in range(num_criterion * num_alternative)])
+alternative_array = alternative_array.reshape(num_criterion, num_alternative)
+
+
+first_order = [2, 1, 3, 4]
+second_order = [4, 1, 2, 3]
+
+# --------- lexicographic ordering ---------
+print('\n\t\tТаблиця альтернатив \n', alternative_array)
+print('\nПорядок сортування ', first_order)
+alternative_1_order = new_order_array(alternative_array, first_order)
+print('\n\t\tТаблиця нових альтернатив \n', alternative_array)
